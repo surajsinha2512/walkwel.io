@@ -1,10 +1,17 @@
 import React,{useState,useEffect} from 'react';
 import { Table } from 'reactstrap';
+//import a from './newdata';
+import arr from './dataSet';
+const fs = require('fs');
 
-import arr from './dataSet'
 
 const Row = (props) => {
-    const [data,setData]=useState([]);
+  useEffect(()=>{
+   fetch('https://randomuser.me/api/?results=10').then((r)=> r.json()).then((r)=>{
+     console.log(r.results[0].gender)
+   })
+  })
+    const [getGender,setGender]=useState("Ervin Howell");
      let count=1;
   return (
    <>
@@ -12,7 +19,6 @@ const Row = (props) => {
       return  (
         <>
         <tr>
-        <td>{count++}</td>
         <td>{f.id}</td>
         <td>{f.name}</td>
         <td>{f.username}</td>
@@ -21,6 +27,7 @@ const Row = (props) => {
         <td>{f.address.street}</td>
         <td>{f.address.city}</td>
         <td>{f.phone}</td>
+        <td>{}</td>
         </tr>
       </>
       )

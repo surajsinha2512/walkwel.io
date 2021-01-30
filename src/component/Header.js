@@ -5,11 +5,12 @@ import arr from './dataSet'
 import Row from './Row';
 import { Button } from 'react-bootstrap';
 
+
 const Display = (props) => {
     const [data,setData]=useState([]);
-    const [dropdownOpen, setDropdownOpen] = useState(false);
+    const [dropdownOpen, setDropdownOpen] = useState(true);
     const toggle = () => setDropdownOpen(prevState => !prevState);
-    const [dropdownText,setDropdownText]=useState("Search by criteria")
+    const [dropdownText,setDropdownText]=useState("Gender")
 
   return (
    <> 
@@ -21,8 +22,8 @@ const Display = (props) => {
        {dropdownText}
         </DropdownToggle>
       <DropdownMenu>
-        <DropdownItem onClick={()=>setDropdownText("Search by first Name")} >First Name</DropdownItem>
-        <DropdownItem onClick={()=>setDropdownText("Search by Email")} >Email</DropdownItem>
+        <DropdownItem onClick={()=>setDropdownText("Male")} >Male</DropdownItem>
+        <DropdownItem onClick={()=>setDropdownText("Female")} >Female</DropdownItem>
       </DropdownMenu>
     </Dropdown>
       
@@ -40,10 +41,13 @@ const Display = (props) => {
           <th>Address</th>
           <th>City</th>
           <th>Gender</th>
+          <th>IQ</th>
         </tr>
       </thead>
       <tbody>
-      <Row/>
+      <Row Gender={dropdownText}/>
+      </tbody>
+      <tbody>
       </tbody>
     </Table>
    </>
