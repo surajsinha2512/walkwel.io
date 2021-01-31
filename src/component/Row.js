@@ -3,6 +3,7 @@ import newArr from './newData';
 
 const Row = (props) => {
   let count=1;
+  let sumIq=0;
   return (
    <>
 {/* filter Logic */}
@@ -11,6 +12,7 @@ const Row = (props) => {
     
     if((props.Gender==f.gender&&props.search=="Search By")){
       console.log("gender")
+      sumIq+=f.IQ
       return  (
         <>
         <tr>
@@ -29,6 +31,7 @@ const Row = (props) => {
       )
     }
 else if(props.value=="" &&props.search=="Search By"&& props.Gender=="Gender"){
+  sumIq+=f.IQ
   return  (
         <>
         <tr>
@@ -47,6 +50,7 @@ else if(props.value=="" &&props.search=="Search By"&& props.Gender=="Gender"){
       )
 }
 else if(props.search=="Last Name"&&props.value==f.LastName&&props.Gender!=="Gender"){
+  sumIq+=f.IQ
   return  (
         <>
         <tr>
@@ -65,6 +69,7 @@ else if(props.search=="Last Name"&&props.value==f.LastName&&props.Gender!=="Gend
       )
 }
 else if(props.search=="Email"&&props.value==f.email&&props.Gender!=="Gender"){
+  sumIq+=f.IQ
   return  (
         <>
         <tr>
@@ -83,6 +88,7 @@ else if(props.search=="Email"&&props.value==f.email&&props.Gender!=="Gender"){
       )
 }
 else if(props.search=="First Name"&&props.value==f.firstName&&props.Gender!=="Gender"){
+  sumIq+=f.IQ
   return  (
         <>
         <tr>
@@ -102,6 +108,17 @@ else if(props.search=="First Name"&&props.value==f.firstName&&props.Gender!=="Ge
 }
 
    })}
+   <tr>   <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Total IQ</td>
+        <td>{sumIq}</td>
+        </tr>
    </>
   );
 }

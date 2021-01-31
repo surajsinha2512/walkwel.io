@@ -27,6 +27,7 @@ const Display = (props) => {
   return (
    <> 
     {/*Input Element for Searching */}
+    <div> Enter Your Gender and then Criteria Search with some Input to get Output </div>
    <div className="row pos" style={{margin:"7px"}}>
    <div className="row">
     <Dropdown isOpen={dropdownOpen} toggle={toggle}  Style={{}}>
