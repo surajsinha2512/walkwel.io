@@ -4,20 +4,21 @@ import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap
 import arr from './dataSet'
 import Row from './Row';
 import { Button } from 'react-bootstrap';
-
+import Temp from './table'
 
 const Display = (props) => {
     const [data,setData]=useState([]);
-    const [dropdownOpen, setDropdownOpen] = useState(true);
+    const [dropdownOpen, setDropdownOpen] = useState(false);
     const toggle = () => setDropdownOpen(prevState => !prevState);
     const [dropdownText,setDropdownText]=useState("Gender")
 
   return (
    <> 
-   <input style={{width:"70%",margin:"10px",height:"25px"}}/> 
+    {/*Input Element for Searching */}
+   <input style={{width:"70%",margin:"10px",height:"30px"}}/> 
    <Button style={{background:"#0275d8", padding:"5px",width:"7%"}}>Search</Button>
     {/* Drop down for the filter   */}
-    <Dropdown isOpen={dropdownOpen} toggle={toggle} >
+    <Dropdown isOpen={dropdownOpen} toggle={toggle}  Style={{align:"right"}}>
       <DropdownToggle caret style={{background:"#af5f46"}}>
        {dropdownText}
         </DropdownToggle>
@@ -50,6 +51,7 @@ const Display = (props) => {
       <tbody>
       </tbody>
     </Table>
+    <Temp/>
    </>
   );
 }
