@@ -3,8 +3,9 @@ import { Table } from 'reactstrap';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import Row from './Row';
 import './Header.css';
-
+//import ToggleButton from './ToggleButton';
 const Display = (props) => {
+    const [toggleBackgorund,setToggleBackgorund]=useState(false);
     const [val,setVal]=useState("");
     const [criteria,setCriteria]=useState("Search By");
     const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -28,6 +29,7 @@ const Display = (props) => {
    <> 
     {/*Input Element for Searching */}
     <div> Enter Your Gender and then Criteria Search with some Input to get Output </div>
+   
    <div className="row pos" style={{margin:"7px"}}>
    <div className="row">
     <Dropdown isOpen={dropdownOpen} toggle={toggle}  Style={{}}>
@@ -55,6 +57,7 @@ const Display = (props) => {
       </DropdownMenu>
     </Dropdown>
    <input style={{width:"30%",height:"30px"}} placeholder={`Enter ${DropdownTextSearch}`} onChange={helper}/> 
+
    {/*<Button style={{background:"#0275d8",width:"7%", height:"100%",}}>Search</Button>*/}
 </div>
     {/* Drop down for the filter Ends  */}
