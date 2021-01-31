@@ -1,33 +1,27 @@
 import React,{useState,useEffect} from 'react';
-import { Table } from 'reactstrap';
-//import a from './newdata';
-import arr from './dataSet';
-const fs = require('fs');
-
+import newArr from './newData';
 
 const Row = (props) => {
-  useEffect(()=>{
-   fetch('https://randomuser.me/api/?results=10').then((r)=> r.json()).then((r)=>{
-     console.log(r.results[0].gender)
-   })
-  })
-    const [getGender,setGender]=useState("Ervin Howell");
-     let count=1;
+  let count=1;
   return (
    <>
-  {arr.map((f)=>{
+{/* filter Logic */}
+
+  {newArr.map((f)=>{
+    if(props.Gender==f.gender||props.Gender=="Gender")
       return  (
         <>
         <tr>
-        <td>{f.id}</td>
-        <td>{f.name}</td>
-        <td>{f.username}</td>
+        <td>{count++}</td>
+        <td>{f.DOB}</td>
+        <td>{f.firstName}</td>
+        <td>{f.lastName}</td>
         <td>{f.email}</td>
-        <td>{f.email}</td>
+        <td>{f.gender}</td>
         <td>{f.address.street}</td>
         <td>{f.address.city}</td>
         <td>{f.phone}</td>
-        <td>{}</td>
+        <td>{f.IQ}</td>
         </tr>
       </>
       )

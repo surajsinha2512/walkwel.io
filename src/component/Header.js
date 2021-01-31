@@ -1,7 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import { Table } from 'reactstrap';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-import arr from './dataSet'
 import Row from './Row';
 import { Button } from 'react-bootstrap';
 import './Header.css';
@@ -42,30 +41,22 @@ const Display = (props) => {
       </DropdownMenu>
     </Dropdown>
    <input style={{width:"30%",height:"30px"}} placeholder={`Enter ${DropdownTextSearch}`}/> 
-
    <Button style={{background:"#0275d8",width:"7%", height:"100%",}}>Search</Button>
-
-
-
-
 </div>
     {/* Drop down for the filter Ends  */}
-
-      
      <br/>
-  
    <Table responsive style={{border:"10px solid black",width:"100%"}}>
       <thead style={{backgroundColor:"#ADD8E6"}}>
         <tr>
           <th>Sr. No.</th>
-          <th>id</th>
+          <th>Date of Birth</th>
           <th>First Name</th>
           <th>Last Name</th>
           <th>Email</th>
-          <th>Date of Birth</th>
+          <th>Gender</th>
           <th>Address</th>
           <th>City</th>
-          <th>Gender</th>
+          <th>Phone</th>
           <th>IQ</th>
         </tr>
       </thead>
