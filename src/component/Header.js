@@ -2,17 +2,28 @@ import React,{useState,useEffect} from 'react';
 import { Table } from 'reactstrap';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import Row from './Row';
-import { Button } from 'react-bootstrap';
 import './Header.css';
 
 const Display = (props) => {
-    const [data,setData]=useState([]);
+    const [val,setVal]=useState("");
+    const [criteria,setCriteria]=useState("Search By");
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const toggle = () => setDropdownOpen(prevState => !prevState);
     const [dropdownText,setDropdownText]=useState("Gender");
     const [dropdownOpenSearch,setdropdownOpenSearch]=useState(false);
     const toggleSeacrh=()=> setdropdownOpenSearch(p=>!p)
     const [DropdownTextSearch,setDropdownTextSearch]=useState("Search By");
+    let value=""
+    const helper=(event)=>{
+       setVal(event.target.value)
+     
+    }
+    useEffect(()=>{
+       if(criteria=="First Name"){
+        value=val;
+       }
+       
+    },[criteria])
   return (
    <> 
     {/*Input Element for Searching */}
@@ -25,6 +36,7 @@ const Display = (props) => {
       <DropdownMenu>
         <DropdownItem onClick={()=>setDropdownText("Male")} >Male</DropdownItem>
         <DropdownItem onClick={()=>setDropdownText("Female")} >Female</DropdownItem>
+        <DropdownItem onClick={()=>setDropdownText("Gender")} >Gender</DropdownItem>
       </DropdownMenu>
     </Dropdown>
     </div>
@@ -34,18 +46,19 @@ const Display = (props) => {
        {DropdownTextSearch}
         </DropdownToggle>
       <DropdownMenu>
-        <DropdownItem onClick={()=>setDropdownTextSearch("First Name")} >First Name</DropdownItem>
-        <DropdownItem onClick={()=>setDropdownTextSearch("Last Name")} >Last Name</DropdownItem>
-        <DropdownItem onClick={()=>setDropdownTextSearch("Email")} >Email</DropdownItem>
-        <DropdownItem onClick={()=>setDropdownTextSearch("City")} >City</DropdownItem>
+        <DropdownItem onClick={()=>{setDropdownTextSearch("First Name"); setCriteria("First Name")}} >First Name</DropdownItem>
+        <DropdownItem onClick={()=>{setDropdownTextSearch("Last Name"); setCriteria("Last Name")}} >Last Name</DropdownItem>
+        <DropdownItem onClick={()=>{setDropdownTextSearch("Email"); setCriteria("Email")}} >Email</DropdownItem>
+        <DropdownItem onClick={()=>{setDropdownTextSearch("City"); setCriteria("City")} }>City</DropdownItem>
+        <DropdownItem onClick={()=>{setDropdownTextSearch("Search By"); setCriteria("Search By")} }>Search By</DropdownItem>
       </DropdownMenu>
     </Dropdown>
-   <input style={{width:"30%",height:"30px"}} placeholder={`Enter ${DropdownTextSearch}`}/> 
-   <Button style={{background:"#0275d8",width:"7%", height:"100%",}}>Search</Button>
+   <input style={{width:"30%",height:"30px"}} placeholder={`Enter ${DropdownTextSearch}`} onChange={helper}/> 
+   {/*<Button style={{background:"#0275d8",width:"7%", height:"100%",}}>Search</Button>*/}
 </div>
     {/* Drop down for the filter Ends  */}
      <br/>
-   <Table responsive style={{border:"10px solid black",width:"100%"}}>
+   <Table responsive style={{border:"10px solid black",width:"100%"}} className="container">
       <thead style={{backgroundColor:"#ADD8E6"}}>
         <tr>
           <th>Sr. No.</th>
@@ -61,7 +74,7 @@ const Display = (props) => {
         </tr>
       </thead>
       <tbody>
-      <Row Gender={dropdownText}/>
+      <Row Gender={dropdownText} search={criteria} value={val}/>
       </tbody>
       <tbody>
       </tbody>
