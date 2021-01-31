@@ -4,21 +4,22 @@ import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap
 import arr from './dataSet'
 import Row from './Row';
 import { Button } from 'react-bootstrap';
-import Temp from './table'
+import './Header.css';
 
 const Display = (props) => {
     const [data,setData]=useState([]);
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const toggle = () => setDropdownOpen(prevState => !prevState);
-    const [dropdownText,setDropdownText]=useState("Gender")
-
+    const [dropdownText,setDropdownText]=useState("Gender");
+    const [dropdownOpenSearch,setdropdownOpenSearch]=useState(false);
+    const toggleSeacrh=()=> setdropdownOpenSearch(p=>!p)
+    const [DropdownTextSearch,setDropdownTextSearch]=useState("Search By");
   return (
    <> 
     {/*Input Element for Searching */}
-   <input style={{width:"70%",margin:"10px",height:"30px"}}/> 
-   <Button style={{background:"#0275d8", padding:"5px",width:"7%"}}>Search</Button>
-    {/* Drop down for the filter   */}
-    <Dropdown isOpen={dropdownOpen} toggle={toggle}  Style={{align:"right"}}>
+   <div className="row pos" style={{margin:"7px"}}>
+   <div className="row">
+    <Dropdown isOpen={dropdownOpen} toggle={toggle}  Style={{}}>
       <DropdownToggle caret style={{background:"#af5f46"}}>
        {dropdownText}
         </DropdownToggle>
@@ -27,10 +28,33 @@ const Display = (props) => {
         <DropdownItem onClick={()=>setDropdownText("Female")} >Female</DropdownItem>
       </DropdownMenu>
     </Dropdown>
+    </div>
+
+    <Dropdown isOpen={dropdownOpenSearch} toggle={toggleSeacrh}  Style={{marginRight:"5px"}}>
+      <DropdownToggle caret style={{background:"#8064A2"}}>
+       {DropdownTextSearch}
+        </DropdownToggle>
+      <DropdownMenu>
+        <DropdownItem onClick={()=>setDropdownTextSearch("First Name")} >First Name</DropdownItem>
+        <DropdownItem onClick={()=>setDropdownTextSearch("Last Name")} >Last Name</DropdownItem>
+        <DropdownItem onClick={()=>setDropdownTextSearch("Email")} >Email</DropdownItem>
+        <DropdownItem onClick={()=>setDropdownTextSearch("City")} >City</DropdownItem>
+      </DropdownMenu>
+    </Dropdown>
+   <input style={{width:"30%",height:"30px"}} placeholder={`Enter ${DropdownTextSearch}`}/> 
+
+   <Button style={{background:"#0275d8",width:"7%", height:"100%",}}>Search</Button>
+
+
+
+
+</div>
+    {/* Drop down for the filter Ends  */}
+
       
      <br/>
   
-   <Table responsive style={{border:"1rem solid black",width:"100%"}}>
+   <Table responsive style={{border:"10px solid black",width:"100%"}}>
       <thead style={{backgroundColor:"#ADD8E6"}}>
         <tr>
           <th>Sr. No.</th>
@@ -51,7 +75,6 @@ const Display = (props) => {
       <tbody>
       </tbody>
     </Table>
-    <Temp/>
    </>
   );
 }
