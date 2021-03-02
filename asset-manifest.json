@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/walkwel.io/static/css/main.420014d1.chunk.css",
+    "main.js": "/walkwel.io/static/js/main.c85c8cdd.chunk.js",
+    "main.js.map": "/walkwel.io/static/js/main.c85c8cdd.chunk.js.map",
+    "runtime-main.js": "/walkwel.io/static/js/runtime-main.26bb9444.js",
+    "runtime-main.js.map": "/walkwel.io/static/js/runtime-main.26bb9444.js.map",
+    "static/css/2.150d169a.chunk.css": "/walkwel.io/static/css/2.150d169a.chunk.css",
+    "static/js/2.3a55f018.chunk.js": "/walkwel.io/static/js/2.3a55f018.chunk.js",
+    "static/js/2.3a55f018.chunk.js.map": "/walkwel.io/static/js/2.3a55f018.chunk.js.map",
+    "static/js/3.74fc32ea.chunk.js": "/walkwel.io/static/js/3.74fc32ea.chunk.js",
+    "static/js/3.74fc32ea.chunk.js.map": "/walkwel.io/static/js/3.74fc32ea.chunk.js.map",
+    "index.html": "/walkwel.io/index.html",
+    "static/css/2.150d169a.chunk.css.map": "/walkwel.io/static/css/2.150d169a.chunk.css.map",
+    "static/css/main.420014d1.chunk.css.map": "/walkwel.io/static/css/main.420014d1.chunk.css.map",
+    "static/js/2.3a55f018.chunk.js.LICENSE.txt": "/walkwel.io/static/js/2.3a55f018.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.26bb9444.js",
+    "static/css/2.150d169a.chunk.css",
+    "static/js/2.3a55f018.chunk.js",
+    "static/css/main.420014d1.chunk.css",
+    "static/js/main.c85c8cdd.chunk.js"
+  ]
+}
